@@ -30,6 +30,7 @@ bot.on('message', msg => {
 
   const guild = msg.guild
   const channel = msg.channel
+  const log = guild.channels.find('name', 'logs')
 
   if(
     guild.id !== '468403852308119570'
@@ -39,8 +40,14 @@ bot.on('message', msg => {
 
   const user = msg.guild.member(msg.author)
 
+  const embed = new Discord.RichEmbed()
+    .setTitle(`**${msg.author.tag}**`)
+    .setDescription('New Verification')
+    .setColor('#00ff00')
+
   user.addRole(msg.guild.roles.find('name', 'USER').id)
   user.removeRole(msg.guild.roles.find('name', 'unverified').id)
+  log.send(embed)
   msg.delete()
 })
 
