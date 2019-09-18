@@ -20,10 +20,12 @@ Thank you
 `
 
 bot.on('guildMemberAdd', member => {
+  if(member.bot) return
   member.send(introduction)
 })
 
 bot.on('message', msg => {
+  if(msg.author.bot) return
   if(msg.channel.type == 'dm') return
 
   const guild = msg.guild
