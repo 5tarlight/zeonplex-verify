@@ -30,13 +30,15 @@ bot.on('message', msg => {
   const channel = msg.channel
 
   if(
-    guild.id !== '581137248431505429'
-    || channel.id !== '581137249077297159'
+    guild.id !== '468403852308119570'
+    || channel.id !== '623537570089009152'
     || msg.content !== 'verify'
   ) return
 
-  //여기에서 역할 넣어주자
+  const user = msg.guild.member(msg.author)
 
+  user.addRole(msg.guild.roles.find('name', 'USER').id)
+  user.removeRole(msg.guild.roles.find('name', 'unverified').id)
   msg.delete()
 })
 
