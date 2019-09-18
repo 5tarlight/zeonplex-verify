@@ -42,4 +42,4 @@ bot.on('message', msg => {
   msg.delete()
 })
 
-bot.login('NjIzMjg3NDcyMjE3OTE1Mzky.XYD3yQ.7Dl8AxBO7gDL4oUHIfu_mnh-Sw0')
+bot.login('NjIzMjg3NDcyMjE3OTE1Mzky.XYJDzA.kzo4n9vfFrMFLNg2IZNPQrftCiM')
