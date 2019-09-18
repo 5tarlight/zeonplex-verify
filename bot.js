@@ -19,9 +19,17 @@ Please go to #verify channel and send \`verify\` to visit whole channel of our d
 Thank you
 `
 
+bot.on('guildMemberRemove', member => {
+  const channel = member.guild.channels.find('id', '469475495776485376')
+  channel.send(`**${member.user.tag}**님 재밌게 즐기셨나요;;; 나중에 또 오세요 :(`)
+})
+
 bot.on('guildMemberAdd', member => {
   if(member.bot) return
   member.send(introduction)
+
+  const channel = member.guild.channels.find('id', '469475495776485376')
+  channel.send(`안녕하세요 ${member.user}님 **ZEONPLEX**에 오신것을 환영합니다! :tada::hugging: 즐거운 시간 되세요~`)
 })
 
 bot.on('message', msg => {
