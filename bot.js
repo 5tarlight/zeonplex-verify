@@ -44,6 +44,7 @@ bot.on('message', msg => {
     .setTitle(`**${msg.author.tag}**`)
     .setDescription('New Verification')
     .setColor('#00ff00')
+    .setTimestamp(new Date())
 
   user.addRole(msg.guild.roles.find('name', 'USER').id)
   user.removeRole(msg.guild.roles.find('name', 'unverified').id)
