@@ -25,11 +25,22 @@ bot.on('guildMemberRemove', member => {
 })
 
 bot.on('guildMemberAdd', member => {
-  if(member.bot) return
-  member.send(introduction)
+  try {
+    if(member.bot) return
+    member.send(introduction)
+  
+    const channel = member.guild.channels.find('id', '469475495776485376')
+    channel.send(`안녕하세요 ${member.user}님 **ZEONPLEX**에 오신것을 환영합니다! :tada::hugging: 즐거운 시간 되세요~`)
+  } catch(e) {
+    const log = member.guild.channels.find('name', 'logs')
+    const embed = new Discord.RichEmbed()
+    .setTitle(`**${member.user.tag}**`)
+    .setDescription('Welcome Failed')
+    .setColor('#ff2222')
+    .setTimestamp(new Date())
 
-  const channel = member.guild.channels.find('id', '469475495776485376')
-  channel.send(`안녕하세요 ${member.user}님 **ZEONPLEX**에 오신것을 환영합니다! :tada::hugging: 즐거운 시간 되세요~`)
+    log.send(embed)
+  }
 })
 
 bot.on('message', msg => {
