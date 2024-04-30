@@ -71,4 +71,4 @@ bot.on('message', msg => {
   msg.delete()
 })
 
-bot.login('NjIzMjg3NDcyMjE3OTE1Mzky.XYJDzA.kzo4n9vfFrMFLNg2IZNPQrftCiM')
+bot.login('TOKEN HERE')
